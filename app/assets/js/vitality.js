@@ -80,7 +80,7 @@ $('.gallery-link').magnificPopup({
 // Formstone Wallpaper - Video Background Settings
 $("header.video").wallpaper({
     source: {
-        poster: "assets/img/header/headerathenee.jpg"
+        poster: "assets/img/header/headergolowan1.jpg"
     }
 });
 
