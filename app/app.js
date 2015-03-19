@@ -98,3 +98,10 @@ app.directive('textBlock', function() {
         templateUrl: 'Angular Blocks/text-block.html'
     };
 });
+
+app.directive('photographerBlock', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'Angular Blocks/photographer-block'
+    };
+});
