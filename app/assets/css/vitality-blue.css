@@ -1270,10 +1270,10 @@ body.vintage .testimonials .testimonials-carousel .owl-controls .owl-next {
 
 /*Penwith College Thank You Parrallax */
 
-#eat  {
+#eat h2, p {
     color: #000;
 }
 
-/*#eat .btn  {
+#eat .btn  {
     color: #000;
-}*/
+}
