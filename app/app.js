@@ -102,6 +102,6 @@ app.directive('textBlock', function() {
 app.directive('photographerBlock', function() {
     return {
         restrict: 'E',
-        templateUrl: 'Angular Blocks/photographer-block'
+        templateUrl: 'Angular Blocks/photographer-block.html'
     };
 });
