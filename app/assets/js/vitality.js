@@ -149,7 +149,7 @@ $(document).ready(function() {
         });
         wow.init();
     }
-    $("#eat .cta-quote").css("background-image" , "http://www.truro-penwith.ac.uk/images/random/gen"+getRandomInt(1,56)+".jpg"
+    $("#eat .cta-quote").css("background-image" , "http://www.truro-penwith.ac.uk/images/random/gen"+getRandomInt(1,56)+".jpg");
 });
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
