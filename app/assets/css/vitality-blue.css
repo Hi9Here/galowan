@@ -254,7 +254,9 @@ header .intro-content {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.33);
 }
-
+.contact-details {
+    background-color: rgba(0, 0, 0, 0.33);
+}
 header .brand-name {
     margin-top: 15px;
     text-transform: uppercase;
