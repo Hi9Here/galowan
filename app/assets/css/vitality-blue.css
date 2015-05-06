@@ -637,7 +637,7 @@ aside.cta-quote span.quote {
 }
 
 .portfolio-carousel .item {
-    padding: 50px 55px;
+    padding: 250px 55px;
     text-align: center;
     background: no-repeat center center scroll;
     background-color: #222;
@@ -713,7 +713,7 @@ aside.cta-quote span.quote {
 
 @media(min-width:992px) {
     .portfolio-carousel .item {
-        padding: 155px 55px;
+        padding: 255px 55px;
         min-height: 100%;
         text-align: left;
     }

@@ -684,7 +684,7 @@
 				}
 
 				// Position the media
-				data.left = -(data.width - frameWidth) / 2;
+				data.left = 0;
 				data.top = -(data.height - frameHeight) / 2;
 
 				$mediaContainer.css({
