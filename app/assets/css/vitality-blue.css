@@ -252,6 +252,7 @@ header .intro-content {
     position: relative;
     text-align: center;
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.33);
 }
 
 header .brand-name {
