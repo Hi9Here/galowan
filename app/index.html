@@ -13,8 +13,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Retina.js - Load first for faster HQ mobile images. -->
-    <script src="assets/js/plugins/retina/retina.min.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+   <link rel="import" href="bower_components/paper-form-on-fire/paper-form-on-fire.html">
 
     <!-- Font Awesome -->
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -45,46 +45,622 @@
 <body id="page-top">
 <!--DO NOT TOUCH ABOVE-->
 
-    <!--Navigation Block-->
-    <nav-block></nav-block>
 
-    <!--Heading Block-->
-    <heading-block></heading-block>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-    <!--About Block-->
-    <about-block></about-block>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a href="#about">What's On</a>
+                </li>
+                <li>
+                    <a href="#meet">Stalls</a>
+                </li>
+                <li>
+                    <a href="#play">Faces of Golowan</a>
+                </li>
+                <li>
+                    <a href="#explore">Gallery</a>
+                </li>
+                <li>
+                    <a href="#contact">Volunteers</a>
+                </li>
+                <li>
+                    <a href="#text">History</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-    <!--EAT-->
-    <eat-block></eat-block>
+<header class="video">
+    <div class="overlay"></div>
+    <div class="intro-content">
+        <img src="" class="img-responsive img-centered" alt="">
 
-    <!--MEET-->
-    <meet-block></meet-block>
+        <!--Heading-->
+        <div class="brand-name">
+            Golowan Festival 2015</div>
 
-    <!--PLAY-->
-    <play-block></play-block>
+        <!--Break-->
+        <hr class="colored">
 
-    <!-- Photographer -->
-    <photographer-block></photographer-block>
+        <!--Sub Heading-->
+        <div class="brand-name-subtext">
+            Join Us For Our 25th Year Celebrating Midsummer</div>
 
-    <!--SLEEP-->
-    <sleep-block></sleep-block>
+        <!--Break-->
+        <hr class="colored">
 
-    <!--Images of Area-->
-    <slider-block></slider-block>
+        <div class="row">
+            <div id="headtel">
+                <h3>19th June - 28th June in Penzance</h3>
+            </div>
+        </div>
+        <!--Book Button-->
+        <!-- <a href="#portfolioModal1" data-toggle="modal" class="btn btn-outline-light">
+            Business - Keep Updated
 
-    <!--Contact block-->
-    <contact-block></contact-block>
+            <i class="fa fa-long-arrow-right fa-fw"></i>
+        </a> -->
+    </div>
 
-    <!--TEXT-->
-    <text-block></text-block>
+    <!--Scroll Button-->
+    <div class="scroll-down page-scroll">
+        <a class="btn" href="#about"><i class="fa fa-angle-down"></i></a>
+    </div>
 
-    <!--Bottom block-->
-    <footer-block></footer-block>
+</header>
 
-    <!-- Book block -->
-    <!-- <book-block></book-block> -->
+<section id="about">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-12 wow fadeIn">
+                <h1>What's On</h1>
+                <p>Visit Penzance during Golowan for our 25th year celebrating Midsummer! Here's just some of the highlights from the 2015 programme with the two main events Mazey Day on 27th June & Quay Day on 28th June. Watch this space to keep up to date </p>
+                <hr class="colored">
+            </div>
+        </div>
+        <div class="row text-center content-row">
+            <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+                <div class="about-content">
+                    <i class="fa fa-flag fa-4x"></i>
+                    <h3>Processions</h3>
+                    <p>Follow the highlights of Golowan -  The Mazey Day Processions - as the people & the floats make their way through Penzance town centre</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".4s">
+                <div class="about-content">
+                    <i class="fa fa-money fa-4x"></i>
+                    <h3>Markets</h3>
+                    <p>Browse the Mazey & Quay Fair Day stalls mainly filled with Cornish products ranging from locally produced foods to handcrafted gifts</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".6s">
+                <div class="about-content">
+                    <i class="fa fa-beer fa-4x"></i>
+                    <h3>Tents</h3>
+                    <p>Don’t let the day end. Visit the seafront with friends, share a local brew in the beer tents, have fun at the fair + watch the sunset</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".8s">
+                <div class="about-content">
+                    <i class="fa fa-music fa-4x"></i>
+                    <h3>Music</h3>
+                    <p>Enjoy a Jazz Noir Evening @the Acorn & various groups performing @the Exchange & @the Ritz + St Marys Church</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="eat">
+    <aside class="cta-quote" style="background-image: url('assets/img/eat/Penwith-Logo.jpg');">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div 
+  style="background: rgba(255, 255, 255, 0.67)" class="col-md-10 col-md-offset-1">
+                    <h2>Thank You</h2>
+                    <hr class="colored">
+                    <p>Huge Thanks go to Penwith College for their generous sponsorship & support of this event 
+                    <br /> <img  style="border: solid #fff 5px"  src="http://www.truro-penwith.ac.uk/wp-content/themes/listings/images/logos.gif" /></p>
+                    <hr class=" colored">
+                    <a href="http://www.truro-penwith.ac.uk/" class="btn btn-outline-light">Find Out More About Penwith College</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>
+
+<section id="meet" class="services">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12 wow fadeIn">
+                <h2>STALLS</h2>
+                <hr class="colored">
+                <p>Why Visit Here & Why Pitch Here</p>
+            </div>
+        </div>
+        <div class="row content-row">
+            <div class="col-md-4 wow fadeIn" data-wow-delay=".2s">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Come Along</h3>
+                        <ul>
+                            <li>Celebrate Midsummer</li>
+                            <li>Be part of the party</li>
+                            <li>Grab a takeaway of the day</li>
+                            <li>Meet Friends</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeIn" data-wow-delay=".4s">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="fa fa-flag"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Types of Stalls</h3>
+                        <ul>
+                            <li>Food</li>
+                            <li>Gifts</li>
+                            <li>Clothes</li>
+                            <li>Others</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeIn" data-wow-delay=".6s">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="fa fa-info-circle"></i>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">Enquire & Hire</h3>
+                        <ul>
+                            <li>Opportunity to sell</li>
+                            <li>Get your name out there</li>
+                            <li>Loads of buyers</li>
+                            <li>Great Rates</li>
+                            <li>Stalls <a href="https://s3-eu-west-1.amazonaws.com/golowan/files/paperwork.zip">get the paper work</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            If you would like a pitch at either/both of the Golowan Festival Markets on Mazey Day Sat 27 June or Quay Fair Day Sun 28 June, please download the stalls information and application forms 
+            <a href="https://s3-eu-west-1.amazonaws.com/golowan/files/paperwork.zip">here</a>
+            or contact Golowan at golowan-trade@hotmail.com or on 01736 369677.  Please note, we have a special price for independent, local (Penzance)  businesses and craftspeople who are happy to have a stall in Causewayhead or Chapel Street.
+        </div>
+</section>
+
+<section id="play">
+    <div class="container text-center wow fadeIn">
+        <h2>The Faces of Golowan</h2>
+        <hr class="colored">
+        <p>Don't Miss Out - Join The Party!</p>
+
+        <div class="row content-row">
+            <div class="col-lg-12">
+                <div class="portfolio-filter">
+                    <ul id="filters" class="clearfix">
+                        <li>
+                            <span class="filter active" data-filter="procession kids food web">All</span>
+                        </li>
+                        <li>
+                            <span class="filter" data-filter="procession">Procession</span>
+                        </li>
+                        <li>
+                            <span class="filter" data-filter="kids">Kids</span>
+                        </li>
+                        <li>
+                            <span class="filter" data-filter="food">Food</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="portfoliolist">
+
+                <!--Block 1-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/1.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Parrots</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 2-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/2.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Trumpets</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 3-->
+                    <div class="portfolio kids" data-cat="kids" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/3.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Smiles</a>
+                                    <span class="text-category">Kids</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 4-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/4.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">The Pirates of Penzance</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 5-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/5.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Teeth</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 6-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/6.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Feathers</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 7-->
+                    <div class="portfolio procession" data-cat="procession" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/7.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Midsummer Madness</a>
+                                    <span class="text-category">Procession</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 8-->
+                    <div class="portfolio food" data-cat="food" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/8.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Oodles of Noodles</a>
+                                    <span class="text-category">Food</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 9-->
+                    <div class="portfolio kids" data-cat="kids" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/9.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Headband</a>
+                                    <span class="text-category">Kids</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 10-->
+                    <div class="portfolio kids" data-cat="kids" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/10.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Come Together</a>
+                                    <span class="text-category">Kids</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                <!--Block 11-->
+                    <div class="portfolio kids" data-cat="kids" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/11.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">"My Hearty</a>
+                                    <span class="text-category">Kids</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+
+                 <!--Block 12-->
+                    <div class="portfolio food" data-cat="food" href="#portfolioModal1" data-toggle="modal">
+                        <div class="portfolio-wrapper">
+                            <img src="assets/img/play/12.jpg" alt="">
+                            <div class="caption">
+                                <div class="caption-text">
+                                    <a class="text-title">Thai Style</a>
+                                    <span class="text-category">Food</span>
+                                </div>
+                                <div class="caption-bg"></div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Block-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="photographer" class="services">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 wow fadeIn" style="font-size: 12em;">
+                <i class="fa fa-camera fa-6"></i>
+            </div>
+            <div class="col-lg-9 wow fadeIn">
+                <h2>Photographer</h2>
+                <hr class="colored">
+<p>All the images on this site have been provided free of charge, courtesy of John Stedman.They are all subject to copyright but if you’d like to use any or are interested in viewing more of John’s portfolio, would like more info. about him, please <a href="http://www.johnstedman.co.uk/">click here</a></p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="bg-gray" id="sleep">
+  <div class="container text-center wow fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Supporters</h2>
+        <p>A huge thank you to all of this years sponsors for helping make this event possible. If you're interested in becoming a sponsor, please get in touch <a href="mailto:golowan@hotmail.co.uk">email</a>. We'd love to have your support. </p>
+        <hr class="colored">
+      </div>
+    </div>
+    <div class="row content-row">
+      <div class="col-lg-12">
+        <div class="about-carousel">
+          <golowan-ads></golowan-ads>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 
 
+<section id="explore" class="bg-gray">
+    <div class="container text-center wow fadeIn">
+        <h2>Gallery</h2>
+        <hr class="colored">
+        <p>Some of The Best From 2014</p>
+    </div>
+</section>
+
+<section class="portfolio-carousel wow fadeIn">
+    <div class="item" style="background-image: url('assets/img/slider/1.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <div class="project-details"></div>
+                </div>
+                <div class="col-md-8 col-md-pull-4 hidden-xs">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url('assets/img/slider/2.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url('assets/img/slider/3.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <div class="project-details"></div>
+                </div>
+                <div class="col-md-8 col-md-pull-4 hidden-xs">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url('assets/img/slider/4.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <div class="project-details"></div>
+                </div>
+                <div class="col-md-8 col-md-pull-4 hidden-xs">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url('assets/img/slider/5.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <div class="project-details"></div>
+                </div>
+                <div class="col-md-8 col-md-pull-4 hidden-xs">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url('assets/img/slider/7.jpg')">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <div class="project-details"></div>
+                </div>
+                <div class="col-md-8 col-md-pull-4 hidden-xs">
+                    <img src="" class="img-responsive portfolio-image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container wow fadeIn">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Friends & Volunteers of Golowan</h2>
+                <hr class="colored">
+                <p>Golowan is a huge attraction, not just to people across the UK but also from Europe & the USA. It’s fantastic for both business and the community, boosting local economy by over 1m.</p>
+                <p>But it costs. In fact every year over £80,000 in charges are accrued and met by PZ Town Council, grants, sponsors, local businesss & individual donations.</p>
+                <p>You too can help. Show your support by becoming a Friend of Golowan or by signing up as a volunteer. By doing so you'll be helping to keep this great Festival going.</p>
+<p>Become a Friend from as little £20 per year & receive a big TY both in our programme & here on the website (see our Contact Us details at the bottom of the page). To become a volunteer simply sign up below!</p>
+            </div>
+        </div>
+        <div class="row content-row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p>Get in Touch email <a href="mailto:golowan@hotmail.co.uk" >golowan@hotmail.co.uk</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="text" class="services">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 wow fadeIn" style="font-size: 12em;">
+                <i class="fa fa-info-circle fa-6"></i>
+            </div>
+            <div class="col-lg-9 wow fadeIn">
+                <h2>History</h2>
+                <hr class="colored">
+<p>Celebration of midsummer - the Feast of St. John - with bonfires, flaming tar barrels and burning torches was widespread in Cornwall until the late 19th Century. Penzance was one of the last towns to lose this tradition in the 1890s, as the perceived fire risk had made insurance premiums too expensive.</p>
+<p>In 1991, the tradition was revived by Alverton School, members of Kneehigh Theatre, Penwith Peninsula Project and Penzance Town Council. From the one day of celebration - Mazey Day - and with the continuing support of Penzance Town Council, Golowan grew to revive the old traditions of the Feast of St. John, with the Golowan Band, Serpent Dances, the Quay Fair, Mock Mayor Election, greenery, banners and giant imagery on parade. 
+Mazey Eve each year sees the election of the Mock Mayor of the Quay and, after a spectacular fireworks display, the appearance of Penglaz, Penzance's 'Obby 'Oss, accompanied by the Golowan Band.</p>
+<p>Mazey Day, launched each year by the Mayor of Penzance and the Mock Mayor of the Quay, is the centrepiece of the festival, in which artists, schools and other community groups fill the streets with music and giant sculptures in a series of parades. 
+Tens of thousands of people line the main street of Penzance, Market Jew Street, which becomes a huge market place for the day, with traders selling all manner of goods as well as food from all around the world.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="#" class="btn btn-block btn-full-width">Visitors Sign Up To Find Out More</a>
+<footer class="footer" style="background-image: url('assets/img/footer/footer.jpg')">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 contact-details">
+                <h4><i class="fa fa-phone"></i> Call</h4>
+                <p>Phone 01736 369686</p>
+                <p>01736 369 677</p>
+            </div>
+            <div class="col-md-6 contact-details">
+                <h4><i class="fa fa-envelope"></i> Email</h4>
+                <p><a href="mailto:golowan@hotmail.co.uk">golowan@hotmail.co.uk</a></a></p>  <p><a href="mailto:golowan-trade@hotmail.co.uk">golowan-trade@hotmail.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="row"></div>
+            <div class="contact-details">
+        <h4>Festival Office Address</h4>
+        <p>The Barbican, Battery Road, Penzance, TR18 4EF</p>
+        <div class="row social">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li><a href="https://www.facebook.com/pages/Golowan-Festival-Official-Page/277967782386"><i class="fa fa-facebook fa-fw fa-2x"></i></a>
+                    </li>
+                    <li><a href="https://twitter.com/GolowanFestival"><i class="fa fa-twitter fa-fw fa-2x"></i></a>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="row copyright">
+            <div class="col-lg-12">
+                <p class="small">&copy; HackIT</p>
+            </div>
+        </div>
+    </div>
+</footer>
     <!--DO NOT TOUCH BELOW-->
     <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
@@ -101,12 +677,41 @@
     <script src="assets/js/plugins/wow/wow.min.js"></script>
     <script src="assets/js/contact_me.js"></script>
     <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="app.js"></script>
 
     <!-- Vitality Theme Scripts -->
     <script src="assets/js/vitality.js"></script>
 
+<!-- Plugin Scripts -->
+<script src="assets/js/plugins/jquery.easing.min.js"></script>
+<script src="assets/js/plugins/classie.js"></script>
+<script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
+<script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
+<script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/plugins/jquery.fs.wallpaper.js"></script>
+<script src="assets/js/plugins/jquery.mixitup.js"></script>
+<script src="assets/js/plugins/wow/wow.min.js"></script>
+<script src="assets/js/contact_me.js"></script>
+<script src="assets/js/plugins/jqBootstrapValidation.js"></script>
+
+<!-- Vitality Theme Scripts -->
+<script src="assets/js/vitality.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+
+  <!-- Plugin Scripts -->
+  <script src="assets/js/plugins/jquery.easing.min.js"></script>
+  <script src="assets/js/plugins/classie.js"></script>
+  <script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
+  <script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
+  <script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/plugins/jquery.fs.wallpaper.js"></script>
+  <script src="assets/js/plugins/jquery.mixitup.js"></script>
+  <script src="assets/js/plugins/wow/wow.min.js"></script>
+  <script src="assets/js/contact_me.js"></script>
+  <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
+
+  <!-- Vitality Theme Scripts -->
+  <script src="assets/js/vitality.js"></script>
 </body>
 
 </html>
