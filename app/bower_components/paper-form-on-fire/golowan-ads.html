@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../firebase-element/firebase-element.html">
+
 <polymer-element name="golowan-ads">
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
@@ -12,9 +13,9 @@
       </center>
     </div> 
   </template>
-  <style>
+  <script>
     Polymer({
       applyAuthorStyles: true
-    }
-  </style>
+    });
+  </script>
 </template>
