@@ -35,14 +35,13 @@
   "devDependencies": {
     "web-component-tester": "*"
   },
-  "_release": "c35d70ffb1",
+  "_release": "53fb2a15e9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "c35d70ffb1a31c11f3942d0eac19da655685b189"
+    "commit": "53fb2a15e9b4d8f60862df6758a7b1451f8b8f22"
   },
   "_source": "git://github.com/HackITtoday/paper-form-on-fire.git",
   "_target": "*",
-  "_originalSource": "HackITtoday/paper-form-on-fire",
-  "_direct": true
+  "_originalSource": "paper-form-on-fire"
 }

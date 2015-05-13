@@ -1,0 +1,13 @@
+{
+  "name": "app-globals",
+  "homepage": "https://github.com/marcus7777/app-globals",
+  "_release": "606aa7d42e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "606aa7d42e27d5bd0ed6b67b28ae5dca8ecccf00"
+  },
+  "_source": "git://github.com/marcus7777/app-globals.git",
+  "_target": "master",
+  "_originalSource": "marcus7777/app-globals"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "inner-html",
+  "version": "0.0.0",
+  "homepage": "https://github.com/marcus7777/innerHTML",
+  "authors": [
+    "Marcus Hitchins <marcus@hhost.me>"
+  ],
+  "description": "polymer unsafe html output",
+  "main": "inner-html.html",
+  "keywords": [
+    "html",
+    "polymer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "juicy-html": "Juicy/juicy-html#~0.0.20141119"
+  }
+}

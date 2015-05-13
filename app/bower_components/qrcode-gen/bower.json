@@ -1,0 +1,23 @@
+{
+  "name": "qr-code",
+  "version": "0.0.1",
+  "homepage": "https://github.com/marcus7777/qr-code",
+  "authors": [
+    "Marcus Hitchins <marcus@hhost.me>"
+  ],
+  "description": "A polymer qr-code element",
+  "main": "qr-code.html",
+  "keywords": [
+    "polymer",
+    "qrcode",
+    "generator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

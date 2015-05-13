@@ -1,0 +1,299 @@
+<link rel="import" href="../core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../core-header-panel/core-header-panel.html">
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../core-menu/core-menu.html">
+<link rel="import" href="../core-item/core-item.html">
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../core-icons/communication-icons.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../firebase-element/firebase-login.html">
+<link rel="import" href="../firebase-element/firebase-element.html">
+<link rel="import" href="../juicy-html/juicy-html.html">
+<link rel="import" href="../crypto-js/crypto-js-sha256.html">
+<link rel="import" href="../paper-form-on-fire/paper-form-on-fire.html">
+
+  <polymer-element name="paper-cms-on-fire" attributes="app">
+
+    <template id="paper-cms-on-fire">
+    <style>
+      host: {
+        background: #fafafa;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+      }
+      [drawer] {
+        background-color: #EEEEEE;
+      }
+      core-toolbar {
+        color: #FAFAFA;
+        background-color: #009688;
+      }
+      paper-button :host {
+        text-transform: none;
+      }
+      paper-card :host .header img {
+        width: 100px;
+      }
+    </style>
+    <core-drawer-panel>
+      <!-- Drawer -->
+      <core-header-panel drawer>
+        <!-- Drawer Toolbar -->
+        <core-toolbar>Menu</core-toolbar>
+        <!-- Drawer Content -->
+        <core-menu id="menu" selected="{{pageOn}}">
+          <template repeat="{{pageKey in pagesKeys}}">
+            <core-item label="{{pages[pageKey].title}}" hidden?="{{!pageVisible(pages[pageKey])}}" >
+              <a href="#!{{pages[pageKey].url}}"></a>
+            </core-item>
+          </template>
+          <core-item hidden?='{{!statusKnown || !user}}'>Account</core-item>
+        </core-menu>
+      </core-header-panel>
+
+      <!-- Main -->
+      <core-header-panel main>
+        
+        <!-- Main Toolbar -->
+        <core-toolbar>
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <paper-icon-button icon="home">
+            <a href="/"></a>
+          </paper-icon-button>
+          <span flex>{{appName}}</span>
+          <paper-button on-tap="{{login}}" hidden?="{{!statusKnown || user}}">Sign in</paper-button>
+          <paper-icon-button on-tap="{{login}}" icon="account-circle" hidden?="{{!statusKnown || user}}"></paper-icon-button>
+        </core-toolbar>
+        <core-pages selected="{{pageOn}}">
+          <template repeat="{{pageKey in pagesKeys}}">
+            <section route="{{pages[pageKey].url}}" hidden?="{{!pageVisible(pages[pageKey])}}" >
+              <template is="juicy-html" content="{{pages[pageKey].html}}"></template>
+            </section>
+          </template>
+          <section hidden?="{{!statusKnown || !user}}" >
+            <h1>Setting</h1>
+            <template repeat="{{pageKey in pagesKeys}}">
+              <core-item>
+                <paper-form-on-fire label="Edit: {{pages[pageKey].title}}"
+                  content="{{pages[pageKey]}}"
+                  content_key="{{pageKey}}"
+                  firebase_url_data="https://{{app}}.firebaseio.com/pages"
+                  firebase_url_form="https://{{app}}.firebaseio.com/form"
+                  form_json="form-export.json"
+                >
+                </paper-form-on-fire>
+              </core-item>
+            </template>
+
+            <paper-form-on-fire label="add page" 
+              firebase_url_data="https://{{app}}.firebaseio.com/pages"
+              firebase_url_form="https://{{app}}.firebaseio.com/form"
+              form_json="form-export.json"
+              >
+            </paper-form-on-fire>
+            <paper-button on-tap='{{logout}}'>Logout</paper-button>
+            
+          </section>
+        </core-pages>
+      </core-header-panel>
+    </core-drawer-panel>
+    
+    <firebase-element location='https://{{app}}.firebaseio.com/pages' data='{{pages}}' keys='{{pagesKeys}}'></firebase-element>
+    <firebase-element id="fbusers" location='https://{{app}}.firebaseio.com/users' data="{{users}}" keys="{{usersKeys}}"></firebase-element>
+    <firebase-element id="fbsite" location='https://{{app}}.firebaseio.com/site'  data='{{site}}'  keys='{{siteKeys}}'></firebase-element>
+
+    <firebase-login id="login" user="{{user}}" statusKnown="{{statusKnown}}" data="{{user}}" location="https://{{app}}.firebaseio.com" provider="google"></firebase-login>
+    </template>
+  
+  <script>
+  'use strict';
+function firstType (value,data) {
+  var isFirst = false;
+  for(var index in data) { 
+    var attr = data[index].type; 
+    if (data[value].type === attr) {
+      if (isFirst) {
+        return false;
+      } else {
+        isFirst = true;
+      }
+      if (index === value) {
+        return isFirst;
+      }
+    }
+  }
+  return true;
+}  
+
+function ofType (value,data,type) {
+  if (data[value].type !== type) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function hasOwnProperty(obj, prop) {
+  if (obj === null) {
+    return false;
+  }
+  var proto = obj.__proto__ || obj.constructor.prototype;
+  return (prop in obj) &&
+  (!(prop in proto) || proto[prop] !== obj[prop]);
+}
+
+  Polymer("paper-cms-on-fire", {
+    ready: function() {
+      console.log('Our app is ready to rock!');
+    },  
+    dataChange: function() {
+      console.log('dataChange'); 
+      this.processedKeys = this.justCardsOfType(this.keys,this.data,this.cardFilter);
+    },
+    pageVisible: function(page) {
+      console.log('pageVisible');
+      if (hasOwnProperty(page,"mod") && hasOwnProperty(page,"own")) {
+        if (page.mod.length === 10) {
+          if (this.user === undefined) {
+            if (page.mod[7] === 'r') {
+              return true;
+            }
+          } else {
+            if (!hasOwnProperty(this,"uid")) {
+              var uid = CryptoJS.SHA256(this.user.uid) + '';
+              console.log('add user here  ' + uid);
+              this.uid = uid;
+            } 
+            if (page.mod[7] === 'r') { // All
+              return true;
+            } else if (page.mod[4] === 'r' && this.userGroup(this.uid,page.group)) { // Group
+              return true;
+            } else if (page.mod[1] === 'r' && this.uid === page.own) { // User
+              return true;
+            }
+          }
+        }
+      }
+    return false;
+    },
+    pageWrite: function(page) {
+    console.log('pageWrite');
+    if (this.user === undefined) {
+      if (hasOwnProperty(page,"mod") && hasOwnProperty(page,"own")) {
+        if (page.mod.length === 9) {
+          if (page.mod[8] === 'w') {
+            return true;
+          }
+        } else {
+          if (!hasOwnProperty(this,"uid")) {
+            var uid = CryptoJS.SHA256(this.user.uid) + '';
+            console.log('add user here  ' + uid);
+            this.uid = uid;
+          }
+          if (page.mod[8] === 'w') { // All
+            return true;
+            } else if (page.mod[5] === 'w' && this.userGroup(this.uid,page.group)) { // Group
+            return true;
+            } else if (page.mod[2] === 'w' && this.uid === page.own) { // User
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  },
+  userGroup: function(uid,group){
+    console.log('userGroup');
+    if (this.users.uid.group === group) {  
+      return true;
+    }
+    return false;
+  },
+  pageOn: 0,
+  login: function() {
+    console.log('login');
+    try {
+      this.params = JSON.parse(document.querySelector('#params').value);
+      } catch (e) {
+      this.params = null;
+    }
+    this.$.login.login();
+  },
+  justTypes: function(value,data){
+    console.log('justTypes');
+    var output = [];
+    if (value !== undefined) {
+      value.forEach(function(entry) {
+        if (firstType(entry,data)) {
+          output.push(entry); 
+        }
+      });
+    }
+    return output;
+  },
+  justCardsOfType: function(value,data,type){
+    console.log('justCardsOfType');
+    if (type === 'All') {
+      return value;
+    } else {
+      var output = [];
+      value.forEach(function(entry) {
+        if (ofType(entry,data,type)) {
+          output.push(entry); 
+        }
+      });
+      return output;
+    }
+  },
+  logout: function() {
+    console.log('logout');
+    this.$.login.logout();
+  },
+  setCardFilter: function(e) {
+    this.cardFilter = e.currentTarget.innerHTML;
+    this.processedKeys = this.justCardsOfType(this.keys,this.data,this.cardFilter);
+  },
+  updatePages: function() {console.log('updatePages'); },
+  user: {},
+  userChanged: function() {  console.log('userChanged');  
+    if(this.user !== null) {
+      this.addUser() //this.$.users.data = this.users;
+    }
+  },
+  updateUsers: function() { console.log('updateUsers'); },
+  pagesChanged: function() { console.log('pagesChanged');
+    console.log(this.pages);
+  },
+  usersChanged: function() {console.log('usersChanged');
+    if(this.user !== null) {
+      this.addUser();
+    }
+    console.log(this.users);
+  },
+  updateSite: function() {
+    console.log('updateSite');
+    app.appName = this.site.title;
+    document.title = this.site.pagetitle;
+  },
+  addUser: function(e) {
+    console.log('addUser');
+    if (hasOwnProperty(this.user,"uid")) {
+      var uid = CryptoJS.SHA256(this.user.uid) + '';
+      console.log('add user here  ' + uid);
+      this.uid = uid;
+      if (!hasOwnProperty(this.users,"uid")) {
+        var userX = {};
+        userX[uid] = {hi:321};  
+        this.users = {uid:uid,userdata:userX};
+      }
+    }
+  },
+  cardFilter: 'All'
+});
+
+  </script>
+  </polymer-element>

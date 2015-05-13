@@ -1,0 +1,24 @@
+{
+  "name": "paper-card",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "swipeable-card": "PolymerLabs/swipeable-card#master",
+    "core-icon-button": "Polymer/core-icon-button#master",
+    "paper-button": "Polymer/paper-button#master",
+    "paper-shadow": "Polymer/paper-shadow#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.0.0"
+  },
+  "homepage": "https://github.com/PolymerLabs/paper-card",
+  "_release": "7dc31bf6db",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7dc31bf6db0d641dc80eab1eab296377b18b53c0"
+  },
+  "_source": "git://github.com/PolymerLabs/paper-card.git",
+  "_target": "*",
+  "_originalSource": "PolymerLabs/paper-card"
+}

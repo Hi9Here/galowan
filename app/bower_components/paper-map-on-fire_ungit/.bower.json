@@ -1,0 +1,45 @@
+{
+  "name": "paper-map-on-fire",
+  "authors": [
+    "marcus@hhost.me"
+  ],
+  "description": "Element providing solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "seed-element.html",
+  "license": "MIT",
+  "homepage": "git:github.com:HackITtoday/paper-map-on-fire.git",
+  "ignore": [
+    "/.*",
+    "/tests/",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase-element": "Polymer/firebase-element#^0.5.0",
+    "app-globals": "marcus7777/app-globals#master",
+    "google-map": "GoogleWebComponents/google-map#master",
+    "paper-card": "PolymerLabs/paper-card"
+  },
+  "devDependencies": {
+    "web-component-tester": "*"
+  },
+  "private": true,
+  "_release": "203b4c3982",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "203b4c39822544588e66f6dd3266b48c4d9cbeac"
+  },
+  "_source": "git://github.com/HackITtoday/paper-map-on-fire.git",
+  "_target": "*",
+  "_originalSource": "HackITtoday/paper-map-on-fire"
+}

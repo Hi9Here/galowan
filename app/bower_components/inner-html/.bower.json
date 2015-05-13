@@ -1,0 +1,33 @@
+{
+  "name": "inner-html",
+  "homepage": "https://github.com/marcus7777/innerHTML",
+  "authors": [
+    "Marcus Hitchins <marcus@hhost.me>"
+  ],
+  "description": "polymer unsafe html output",
+  "main": "inner-html.html",
+  "keywords": [
+    "html",
+    "polymer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "juicy-html": "Juicy/juicy-html#~0.0.20141119"
+  },
+  "_release": "261a1f5d8c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "261a1f5d8c197cb7acc786ee40b6177205c5e483"
+  },
+  "_source": "git://github.com/Marcus7777/innerHTML.git",
+  "_target": "*",
+  "_originalSource": "Marcus7777/innerHTML"
+}

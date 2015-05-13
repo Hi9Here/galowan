@@ -108,6 +108,7 @@ Theming
     },
 
     _isCounterInvalidChanged: function() {
+      debugger
       this.classList.toggle('invalid', this._isCounterInvalid);
       this.fire('char-counter-error',
                 {"hasError": this._isCounterInvalid,

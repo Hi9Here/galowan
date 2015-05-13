@@ -1,0 +1,32 @@
+{
+  "name": "qr-code",
+  "homepage": "https://github.com/marcus7777/qr-code",
+  "authors": [
+    "Marcus Hitchins <marcus@hhost.me>"
+  ],
+  "description": "A polymer qr-code element",
+  "main": "qr-code.html",
+  "keywords": [
+    "polymer",
+    "qrcode",
+    "generator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "c64591cb5d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c64591cb5d552ab08a96aae573c89d3382c3abe6"
+  },
+  "_source": "git://github.com/marcus7777/qr-code.git",
+  "_target": "*",
+  "_originalSource": "qrcode-gen",
+  "_direct": true
+}

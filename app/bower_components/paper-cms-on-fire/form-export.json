@@ -1,0 +1,29 @@
+{
+  "00 Title" : {
+    "id" : "title",
+    "required" : 1,
+    "type" : "text"
+  },
+  "01 Url" : {
+    "id" : "url",
+    "type" : "text"
+  },
+  "02 Mod" : {
+    "id" : "mod",
+    "options" : [ "-rw-rw-r--", "-rw-r--r--" ],
+    "required" : 1,
+    "type" : "option"
+  },
+  "03 Group" : {
+    "id" : "group",
+    "type" : "text"
+  },
+  "03 Own" : {
+    "id" : "own",
+    "type" : "text"
+  },
+  "04 HTML" : {
+    "id" : "html",
+    "type" : "textarea"
+  }
+}

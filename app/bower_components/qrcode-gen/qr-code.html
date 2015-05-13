@@ -1,0 +1,52 @@
+<!doctype html>
+<link rel="import" href="../polymer/polymer.html" />
+<script src="qrcode.js"></script>
+<polymer-element name="qr-code" attributes="typeNumber errorCorrectLevel value href">
+    <!-- inputs 
+    //t TypeNumber 1 40 
+    //e ErrorCorrectLevel L M Q H 
+    //value or link
+    -->
+  <template id="qr-code">
+    <div id="qr"></div>
+  </template>
+  <script>
+    Polymer('qr-code', {
+      ready: function() {
+        this.update_qrcode();
+      },
+      hrefChanged: function () {
+        this.update_qrcode();
+      },
+      valueChanged: function () {
+        this.update_qrcode();
+      },
+      draw_qrcode: function(text, typeNumber, errorCorrectLevel) {
+        document.write(this.create_qrcode(text, typeNumber, errorCorrectLevel) );
+      },
+      create_qrcode: function(text, typeNumber, errorCorrectLevel, table) {
+        var qr = qrcode(typeNumber || 4, errorCorrectLevel || 'M');
+        qr.addData(text);
+        qr.make();
+
+        //return qr.createTableTag();
+        return qr.createImgTag();
+      },
+      update_qrcode: function() {
+        if (this.value) {
+          var text = this.value.
+            replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+          var t = this.typeNumber;
+          var e = this.errorCorrectLevel;
+          this.$.qr.innerHTML = this.create_qrcode(text, t, e);
+        } else if (this.href) {
+          var text = this.href.
+            replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+          var t = this.typeNumber;
+          var e = this.errorCorrectLevel;
+          this.$.qr.innerHTML = "<a href='"+ text + "' >" + this.create_qrcode(text, t, e) + "</a>";
+        }
+      }
+    });
+  </script>
+</polymer-element>
