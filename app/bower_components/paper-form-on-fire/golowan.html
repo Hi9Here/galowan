@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Paper Form on fire Demo</title>
+
+  <script src="../webcomponentsjs/webcomponents.min.js"></script>
+  <link rel="import" href="paper-form-on-fire.html">
+  <link rel="import" href="golowan-ads.html">
+
+</head>
+<body unresolved>
+
+  <paper-form-on-fire label="New ad" 
+    firebase_url_data="https://golowan.firebaseio.com/content/ads"
+    firebase_url_form="https://golowan.firebaseio.com/ads"
+  >
+  </paper-form-on-fire>
+  ads:
+  <golowan-ads></golowan-ads>
+
+  <paper-form-on-fire label="New event" 
+    firebase_url_data="https://golowan.firebaseio.com/content/events"
+    firebase_url_form="https://golowan.firebaseio.com/events"
+  >
+  </paper-form-on-fire>
+
+</body>
+</html>

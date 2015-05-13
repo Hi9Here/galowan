@@ -1,0 +1,252 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../firebase-element/firebase-element.html">
+<link rel="import" href="../paper-datepicker/paper-datepicker.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-toast/paper-toast.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../core-collapse/core-collapse.html">
+<link rel="import" href="../core-menu/core-menu.html">
+<link rel="import" href="../paper-dropdown/paper-dropdown.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../juicy-html/juicy-html.html">
+
+<polymer-element name="paper-form-on-fire" attributes="firebase_url_data firebase_url_form link content content_key label linkText edit">
+  <template id="paper-form-on-fire">
+  <template applyAuthorStyles bind if="{{link}}">
+    <a href="#!" on-click="{{loadFrom}}" >{{linkText}}</a>
+  </template>
+  <template bind if="{{!link}}">
+    <paper-button on-click="{{loadFrom}}" raised role="button" tabindex="0"> 
+      {{label}}
+    </paper-button>
+  </template>
+  <paper-action-dialog id="loadFrom" backdrop autoCloseDisabled >
+
+    <firebase-element id="base" location="{{firebase_url_data}}" keys="{{content_keys}}"> </firebase-element>
+    <firebase-element id="form" location="{{firebase_url_form}}" data="{{form}}" keys="{{keys}}" dataready> </firebase-element>
+    
+    <template id="theForm" repeat="{{x in keys}}">
+		
+      <template if="{{form[x].type == 'date'}}">
+        <paper-datepicker locale="{{form[x].location}}" formatDate="{{form[x].format}}" datePicked="{{data[form[x].id]}}"></paper-datepicker>
+      </template>
+
+      <template if="{{(form[x].type == 'text' || form[x].type == 'email' || form[x].type == 'number' || form[x].type == 'url' || form[x].type == 'tel' || form[x].type == 'password' || form[x].type == 'color'  || form[x].type == 'range')}}">
+        <paper-input-decorator error="{{form[x].error}}" id="decorator-{{form[x].id}}" label="{{x|removeLeadingNumber}} {{form[x].required|requiredStar}}" floatinglabel >
+          <input value="{{data[form[x].id]}}" min="{{form[x].min}}" max="{{form[x].max}}" is="core-input" type="{{form[x].type}}" id="{{form[x].id}}" {{form[x].required|required}} on-input="{{inputAction}}"></input>
+        </paper-input-decorator>
+      </template>
+        
+      <template if="{{form[x].type == 'checkbox'}}">
+        <div><core-label>{{x|removeLeadingNumber}}</core-label> <paper-checkbox checked="{{data[form[x].id]}}"></paper-checkbox></div>
+      </template>
+        
+      <template if="{{form[x].type == 'textarea'}}">
+        <paper-input-decorator error="{{form[x].error}}" label="{{x|removeLeadingNumber}} {{form[x].required|requiredStar}}" floatinglabel >
+          <textarea value="{{data[form[x].id]}}" is="core-input" type="{{form[x].type}}" id="{{form[x].id}}" ></textarea>
+        </paper-input-decorator>
+      </template>
+        
+      <template if="{{form[x].type == 'option'}}">
+        <paper-dropdown-menu label="{{x|removeLeadingNumber}} {{form[x].required|requiredStar}}">
+          <paper-dropdown class="dropdown">
+            <core-menu id="{{form[x].id}}" selected="{{data[form[x].id]}}" class="menu" on-core-select="{{inputAction}}">
+              <template repeat="{{ option in form[x].options }}">
+                <paper-item>{{option}}</paper-item>
+              </template>
+            </core-menu>
+          </paper-dropdown>
+        </paper-dropdown-menu>
+      </template>
+        
+      <template is="juicy-html" if="{{!form[x].type}}" content="{{form[x]}}">
+      </template>
+      <template is="juicy-html" if="{{edit}}" content="<paper-form-on-fire link=1 linkText=':' content='{{form[x]}}'></paper-form-on-fire>">
+      
+      </template>
+     
+    </template>
+    <div horizontal layout>
+    </div>
+    <paper-button hidden?="{{!content}}" label="DONE" on-click="{{save}}" affirmative>DONE</paper-button>
+    <paper-button hidden?="{{content}}" label="CANCEL" affirmative>CANCEL</paper-button>
+    <paper-button hidden?="{{content}}" label="OK" affirmative id="ok" disabled="{{notFilledIn}}" on-click="{{addEntry}}">OK</paper-button>
+  </paper-action-dialog>
+ <paper-toast raised text="Your Message has Been sent" id="toast1" touch-action="none" class="core-transition core-transition-bottom"></paper-toast>
+ <paper-toast raised text="Your Message has NOT Been sent PHONE US NOW" id="toast2" touch-action="none" class="core-transition core-transition-bottom"></paper-toast>
+ <paper-toast raised text="Please fill in the form" id="toast3" touch-action="none" class="core-transition core-transition-bottom"></paper-toast>
+</template>
+    <script>
+      Polymer('paper-form-on-fire', {
+        ready: function() {
+          if (this.content_key !== undefined) {
+            this.data = this.content[this.content_key];
+          }
+          if (this.data === undefined) {
+            if (this.content === undefined) {
+              this.data = {};
+            } else {
+              this.data = this.content;
+            }
+          }
+        },
+        save: function() { console.log("save");
+          debugger;
+          this.addEntry();
+        },
+        loadFrom: function(e) {
+          this.$.loadFrom.toggle();
+        },
+        inputAction:function(e) {
+          var posting = copy(this.data); 
+          var schema = copy(this.form); 
+          listOfInputs = Object.keys(schema);
+          notFilledIn = false;
+          listOfInputs.forEach(function (key) {
+            if (schema[key].required){ 
+              if(posting[schema[key].id] === undefined || posting[schema[key].id] === "") {
+                notFilledIn = true;
+              }
+            } 
+          });
+          this.notFilledIn = notFilledIn;
+          var d = document.querySelectorAll("html /deep/ #decorator-"+e.target.id);
+          if (d[0]) {
+            d[0].isInvalid = !e.target.validity.valid;
+            if (d[0].isInvalid) {
+              this.notFilledIn = true;
+            }
+          }
+        },
+        notFilledIn:true,
+        addEntry: function() {
+          var posting = copy(this.data);
+          var posting_ = {};
+          var schema = copy(this.form); 
+          var notFilledIn = false;
+          listOfInputs = Object.keys(schema);
+          listOfInputs.forEach(function (key) {
+            if ((schema[key].required+"" == "1" ) && (posting[schema[key].id] === undefined || posting[schema[key].id] === "") ) {
+              notFilledIn = true;
+            } else {
+              if (schema[key].type == "date") {
+                posting_[schema[key].id] = moment(posting[schema[key].id]).format(schema[key].format)+"";
+              } else if (schema[key].type == "option") {
+                posting_[schema[key].id] = schema[key].options[ posting[schema[key].id] ]+'';
+              } else {
+                posting_[schema[key].id] = posting[schema[key].id]+"";
+              }
+              var d = document.querySelectorAll("html /deep/ input#"+schema[key].id);
+              if (d[0]) {
+                if (!d[0].validity.valid) notFilledIn = true;
+              }
+            }
+          });
+          if (!notFilledIn){
+            var building = false;
+            var genkey = false;
+            var theKey = false;
+            debugger;
+            if (this.form.hasOwnProperty("00 Key")){
+              if (this.form["00 Key"].hasOwnProperty("special")){
+                if (this.form["00 Key"].special === 1){
+                  building = true;
+                  if (typeof this.data[this.form["00 Key"]] === 'string') {
+                    if (this.data[this.form["00 Key"]].match(/^[0-9]+\s+(.*)$/).length !== 2){
+                      genkey = true;
+                    }
+                  } else {
+                    genkey = true;
+                  }
+                }
+              }
+              } else {
+              posting_.from = document.URL;
+              if (this.data[this.form["title"]]) {
+                
+              }
+            }
+            if (genkey) {
+              theKey = genKey(this.$.base.data,this.data.id);
+            } else {
+              if (this.content_key) { 
+                theKey = this.content_key;
+              } else if (this.data.hasOwnProperty("title")) {
+                theKey = genKey(this.$.base.data,this.data.title);
+              } else {
+                theKey = genKey(this.$.base.data,"title");
+              }
+            }
+           // if (building){
+              if (posting_.options !== undefined ) {
+                posting_.options = posting_.options.split(/\r?\n/); 
+              }
+              if (this.$.base.data === null){ 
+                this.$.base.data = {};
+              }
+              this.$.base.data[theKey] = posting_;
+   //           } else {
+   //           this.$.base.data[theKey] = posting_; 
+   //           if (this.$.base.push(posting_) != false) {
+   //             this.$.toast1.show();// Sent
+   //             this.ready();
+   //             } else {
+   //             this.$.toast2.show();// Not sent
+   //           }              
+   //         }
+          } else {
+            this.$.toast3.show();// Not fill in
+            this.$.loadFrom.toggle();// 
+            this.notFilledIn = true;
+            return false;
+          }
+        },
+        removeLeadingNumber: function(str){
+          return str.match(/^[0-9]+\s+(.*)$/)[1];// need to add a if
+        },
+        requiredStar: function(str){
+          if (str+""=="1") return ' *';
+          // juicy-html if (str+""=="1") return '<span class="form-required" title="This field is required.">*</span>';
+        },
+        required: function(str){
+          if (str+""=="1") return "required";
+        },
+        selected: function(num){
+          if (+num>0) return "selected";
+        }
+      });
+      function copy(o) {
+        var copy = Object.create(Object.getPrototypeOf(o));
+        var propNames = Object.getOwnPropertyNames(o);
+
+        propNames.forEach(function(name) {
+          var desc = Object.getOwnPropertyDescriptor(o, name);
+          Object.defineProperty(copy, name, desc);
+        });
+
+        return copy;
+      }
+      function zeroPad(num, places) {
+        var zero = places - num.toString().length + 1;
+        return Array(+(zero > 0 && zero)).join("0") + num;
+      }
+      function genKey(target,name) {
+        var max = 0;
+        var pad = 2;
+        for (var k in target){
+          if (target.hasOwnProperty(k)) {
+            if (k.match(/^[0-9]+\s+(.*)$/) === null){
+              delete target[k];
+              } else {
+              max = Math.max(max, +k.match(/\d+/g)[0]);
+              pad = Math.max(pad, (""+k.match(/\d+/g)[0]).length);
+            }
+          }
+        }
+        return zeroPad(max + 1,pad) + " " + name.charAt(0).toUpperCase() + name.slice(1);
+      }
+    </script>
+</polymer-element>

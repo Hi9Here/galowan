@@ -1,0 +1,48 @@
+{
+  "name": "paper-form-on-fire",
+  "authors": [
+    "Marcus Hitchins <marcus@hhost.me>"
+  ],
+  "description": "Paper form that writes to firebase",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "seed-element.html",
+  "license": "MIT",
+  "homepage": "https://github.com/HackITtoday/paper-form-on-fire",
+  "ignore": [
+    "/.*",
+    "/tests/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.4",
+    "paper-datepicker": "*",
+    "webcomponentsjs": "~0.5.5",
+    "core-component-page": "Polymer/core-component-page#~0.5.5",
+    "firebase-element": "Polymer/firebase-element#~0.5.5",
+    "core-icons": "Polymer/core-icons#~0.5.5",
+    "paper-input": "Polymer/paper-input#~0.5.5",
+    "core-icon": "Polymer/core-icon#~0.5.5",
+    "paper-toast": "Polymer/paper-toast#~0.5.5",
+    "paper-dropdown-menu": "Polymer/paper-dropdown-menu#~0.5.5",
+    "paper-item": "Polymer/paper-item#~0.5.5",
+    "paper-checkbox": "Polymer/paper-checkbox#^0.5",
+    "core-menu": "Polymer/core-menu#~0.5.5"
+  },
+  "devDependencies": {
+    "web-component-tester": "*"
+  },
+  "_release": "c35d70ffb1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c35d70ffb1a31c11f3942d0eac19da655685b189"
+  },
+  "_source": "git://github.com/HackITtoday/paper-form-on-fire.git",
+  "_target": "*",
+  "_originalSource": "HackITtoday/paper-form-on-fire",
+  "_direct": true
+}
