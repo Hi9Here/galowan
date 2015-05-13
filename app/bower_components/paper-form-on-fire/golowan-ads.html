@@ -1,9 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../firebase-element/firebase-element.html">
 
-<polymer-element name="golowan-ads" noscript >
+<polymer-element name="golowan-ads">
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
+  <div id="mix">
   <template repeat="{{key in keys}}">
     <div class="item">
       <center>
@@ -13,5 +14,9 @@
       </center>
     </div> 
   </template>
+  </div>
+  <script>
+    var ul = document.querySelector('div#mix');for (var i = ul.children.length; i >= 0; i--) {ul.appendChild(ul.children[Math.random() * i | 0]);}
+  </script>
 </template>
 </polymer-element>
