@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<polymer-element name="golowan-ads" noscript >
+<polymer-element name="golowan-ads">
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
   <template repeat="{{key in keys}}">
@@ -11,4 +11,9 @@
       </center>
     </div> 
   </template>
+  <style>
+    Polymer('x-pizza', {
+      applyAuthorStyles: true,
+    }
+  </style>
 </template>
