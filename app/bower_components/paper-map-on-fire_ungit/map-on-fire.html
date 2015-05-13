@@ -1,0 +1,12 @@
+
+<polymer-element name="map-on-fire" noscript attributes="pins data location">
+<template>
+    <google-map  zoom="{{ zoom }}" latitude="{{ $.google_map_search.result.latitude }}" longitude="{{ $.google_map_search.result.longitude }}" id="google_map">
+    <template repeat="{{x in pins }}">
+        <google-map-marker longitude="{{data[x].LatLng|LatLngTolongitude}}" latitude="{{data[x].LatLng|LatLngTolatitude}}" title="{{data[x].value}}"></google-map-marker>
+      </template>
+    </google-map>
+
+    <google-map-search map="{{$.google_map.map}}" query="{{location}}" id="google_map_search"></google-map-search>
+<template>
+</polymer-element>    

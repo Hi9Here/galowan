@@ -18,11 +18,11 @@
     "web-component-tester": "Polymer/web-component-tester#^2.2.3"
   },
   "homepage": "https://github.com/HackITtoday/paper-cms-on-fire",
-  "_release": "a2b2449e12",
+  "_release": "45631a68db",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "a2b2449e12064f591f6530ab0b5aa648bf6261b7"
+    "commit": "45631a68db7605c36f997bdb0574dde686f33caa"
   },
   "_source": "git://github.com/HackITtoday/paper-cms-on-fire.git",
   "_target": "*",

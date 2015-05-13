@@ -1,7 +1,8 @@
 {
   "name": "google-map",
+  "version": "0.4.2",
+  "homepage": "http://googlewebcomponents.github.io/google-map",
   "description": "Google Maps web components",
-  "homepage": "https://googlewebcomponents.github.io/google-map",
   "main": "google-map.html",
   "authors": [
     "Frankie Fu <ffu@google.com>",
@@ -31,13 +32,13 @@
   "devDependencies": {
     "web-component-tester": "*"
   },
-  "_release": "99d0a7f79a",
+  "_release": "0.4.2",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "99d0a7f79a5988388a152fbf063d7ed0ca6d45e7"
+    "type": "version",
+    "tag": "0.4.2",
+    "commit": "cbe9fa6bab57930b59cbbdd9017ea8a92f02a875"
   },
   "_source": "git://github.com/GoogleWebComponents/google-map.git",
-  "_target": "master",
+  "_target": "~0.4.2",
   "_originalSource": "GoogleWebComponents/google-map"
 }

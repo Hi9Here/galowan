@@ -1,0 +1,21 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../firebase-element/firebase-element.html">
+
+<polymer-element name="golowan-ads">
+<template>
+  <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
+  <template repeat="{{key in keys}}">
+    <div class="item">
+      <center>
+        <a href="{{data[key].url}}" title="{{data[key].title}}">
+          <img src="https://googledrive.com/host/0Bzst2NcsXszyflJnLU1pUWF1V0l1V0xlMEwwd1g4RFFxNnN2LVh6SEZSLXlUTk91eFRZVTQ/{{data[key].imagename}}" class="img-responsive" alt="{{data[key].title}}">
+        </a>
+      </center>
+    </div> 
+  </template>
+  <script>
+    Polymer({
+      applyAuthorStyles: true
+    });
+  </script>
+</template>

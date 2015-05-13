@@ -157,6 +157,7 @@ function hasOwnProperty(obj, prop) {
     pageVisible: function(page) {
       console.log('pageVisible');
       if (hasOwnProperty(page,"mod") && hasOwnProperty(page,"own")) {
+        debugger;
         if (page.mod.length === 10) {
           if (this.user === undefined) {
             if (page.mod[7] === 'r') {
