@@ -14,7 +14,8 @@
     </div> 
   </template>
 </template>
-  <script>
+<script>
+  (function() {    
     Polymer('golowan-ads', {
       random: function (array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -35,5 +36,6 @@
         return array;
       }
     });
-  </script>
+  });
+</script>
 </polymer-element>
