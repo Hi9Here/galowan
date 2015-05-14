@@ -1,10 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../firebase-element/firebase-element.html">
 
-<polymer-element name="golowan-ads">
+<polymer-element name="golowan-ads" noscript>
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
-  <template repeat="{{key in keys|random}}">
+  <template repeat="{{key in keys}}">
     <div class="item">
       <center>
         <a href="{{data[key].url}}" title="{{data[key].title}}">
@@ -14,28 +14,4 @@
     </div> 
   </template>
 </template>
-<script>
-  (function() {    
-    Polymer('golowan-ads', {
-      random: function (array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
-          // Pick a remaining element...
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex -= 1;
-
-          // And swap it with the current element.
-          temporaryValue = array[currentIndex];
-          array[currentIndex] = array[randomIndex];
-          array[randomIndex] = temporaryValue;
-        }
-
-        return array;
-      }
-    });
-  });
-</script>
 </polymer-element>
