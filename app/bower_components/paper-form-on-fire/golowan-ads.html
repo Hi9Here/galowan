@@ -4,7 +4,6 @@
 <polymer-element name="golowan-ads">
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
-  <div id="mix">
   <template repeat="{{key in keys|random}}">
     <div class="item">
       <center>
@@ -14,11 +13,11 @@
       </center>
     </div> 
   </template>
-  </div>
+</template>
   <script>
     Polymer('golowan-ads', {
       random: function (array) {
-        var currentIndex = array.length, temporaryValue, randomIndex ;
+        var currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
@@ -37,5 +36,4 @@
       }
     });
   </script>
-</template>
 </polymer-element>
