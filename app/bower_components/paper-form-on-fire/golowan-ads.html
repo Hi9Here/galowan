@@ -3,7 +3,11 @@
 <script>
   PolymerExpressions.prototype.random = function(array){
     debugger;
-    if (typeof array !== 'undefined') return array[Math.floor(Math.random() * array.length)];
+    if (typeof array !== 'undefined') {
+      return array[Math.floor(Math.random() * array.length)];
+    } else {
+      return array;
+    }
   }
 </script>
 <polymer-element name="golowan-ads" noscript>
