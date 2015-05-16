@@ -1,10 +1,14 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../firebase-element/firebase-element.html">
-
+<script>
+  PolymerExpressions.prototype.random = function(array){
+	return array[Math.floor(Math.random() * array.length)];
+}
+</script>
 <polymer-element name="golowan-ads" noscript>
 <template>
   <firebase-element id="ads" location="https://golowan.firebaseio.com/content/ads" data="{{data}}" keys="{{keys}}"> </firebase-element>
-  <template repeat="{{key in keys}}">
+  <template repeat="{{key in keys | random}}">
     <div class="item" style="display:inline-block;">
       <center>
         <a href="{{data[key].url}}" title="{{data[key].title}}">
